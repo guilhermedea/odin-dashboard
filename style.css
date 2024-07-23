@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+:root {
+    --blue: #1992d4;
+    --header-gray: #ffffff;
+    --content-bg-gray: #e2e8f0;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Roboto;
+    margin: 0;
+}
+
+svg {
+    fill: #ffffff;
+    border: none;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 0.5fr 3fr;
+    grid-template-rows: 1fr 4fr;
+    grid-template-areas: "sidebar header"
+                         "sidebar main-content";
+}
+
+.sidebar {
+    padding-left: 20px;
+    background-color: var(--blue);
+    grid-area: sidebar;
+    height: auto;
+    display: grid;
+    grid-template-columns: 50px 2fr;
+    grid-template-rows: 100px repeat(15, 50px);
+    justify-items: center;
+    align-items: center;
+    grid-template-areas: 
+            Dashboard-Icon Dashboard 
+            Home-Icon Home 
+            Profile-Icon Profile
+            Messages-Icon Messages 
+            History-Icon History 
+            Tasks-Icon Tasks 
+            Communities-Icon Communities 
+            . . 
+            Settings-Icon Settings 
+            Support-Icon Support 
+            Privacy-Icon Privacy;
+    
+}
+
+.sidebar > p {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.sidebar > svg {
+    max-width: 40%;
+    max-height: 40%;
+}
+
+.sidebar > :nth-child(1) {
+    max-width: 70%;
+    max-height: 70%;
+}
+
+.sidebar > :nth-child(2) {
+    font-size: 1.5rem;
+}
+
+.sidebar > :nth-child(even){
+    justify-self: start;
+}
+
+header {
+    background-color: var(--header-gray);
+    grid-area: header;
+    height: 150px;
+    z-index: 1;
+    /* box-shadow:
+        0px 1.5px 0.8px -45px rgba(0, 0, 0, 0.037),
+        0px 3.6px 2px -45px rgba(0, 0, 0, 0.053),
+        0px 6.8px 3.8px -45px rgba(0, 0, 0, 0.065),
+        0px 12.1px 6.7px -45px rgba(0, 0, 0, 0.077),
+        0px 22.6px 12.5px -45px rgba(0, 0, 0, 0.093),
+        0px 54px 30px -45px rgba(0, 0, 0, 0.13); */
+    
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.header_container_1 {
+    display: grid;
+    grid-template-columns: 0.5fr 3fr 0.5fr 0.5fr 0.5fr 2fr;
+    grid-template-areas: "search search_bar . bell avatar name";
+    justify-items: center;
+    align-items: center;
+}
+
+.header_container_1 > svg {
+    fill: black;
+    max-width: 40%;
+    max-height: 40%;
+}
+
+.search-bar {
+    background-color: #e2e8f0;
+    height: 35px;
+    width: 600px;
+    border-radius: 20px;
+}
+
+.header_avatar > img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.header_name {
+    justify-self: start;
+    font-weight: bold;
+    font-size: large;
+}
+
+.header_container_2 {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "avatar_big salute . new upload share";
+    justify-items: center;
+    align-items: center;
+}
+
+.header_container_2 > button {
+    background-color: #1992d4;
+    color: #ffffff;
+    border: none;
+    width: 100px;
+    height: 40px;
+    border-radius: 25% 25% 25% 25% / 50% 50% 50% 50%;
+    font-family: Roboto;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.avatar-big > img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.salute {
+    font-weight: bold;
+    justify-self: start;
+    line-height: 1.5rem;
+}
+
+.salute > strong {
+    font-size: 1.3rem;
+}
+
+.main-content {
+    background-color: var(--content-bg-gray);
+    grid-area: main-content;
+    height: auto;
+}
+
+.main-content_main-grid {
+    padding-top: 5px;
+    padding-left: 25px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 0.3fr 3fr;
+    grid-template-areas: 
+        "projects-title announcements-title"
+        "cards-grid side-grid"
+    ;
+    gap: 0px;
+}
+
+.grid-title {
+    font-family: Roboto;
+    font-size: 1.5rem;
+    font-weight: 500;
+    justify-self: start;
+    align-self: flex-end;
+    padding-bottom: 20px;
+}
+
+.your-projects-title {
+    grid-area: "projects-title";
+}
+
+.announcements-title {
+    grid-area: "announcements-title";
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    height: 90vh;
+    justify-items: stretch;
+    padding-right: 15px;
+}
+
+.project-card {
+    padding: 30px 5px 10px 30px;
+    background-color: #ffffff;
+    border-radius: 9px 9px 9px 9px;
+    -webkit-border-radius: 9px 9px 9px 9px;
+    -moz-border-radius: 9px 9px 9px 9px;
+    border-left: solid 10px #efb328;
+    height: 100%;
+    width: 100%;
+}
+
+.project-title {
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.project-description {
+    margin-bottom: 50px;
+    width: 95%;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #636363;
+}
+
+.project-action-menu {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: 20px;
+}
+
+.project-action-menu > svg {
+    width: 6%;
+    height: 6%;
+    fill: black;
+}
+
+.side-grid {
+    display: grid;
+    grid-template-rows: 1.5fr 0.4fr 1.5fr;
+    background-color: var(--content-bg-gray);
+    padding-right: 20px;
+}
+
+.announcements-bar {
+    background-color: #ffffff;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    padding: 30px;
+    border-radius: 9px 9px 9px 9px;
+    -webkit-border-radius: 9px 9px 9px 9px;
+    -moz-border-radius: 9px 9px 9px 9px;
+    justify-items: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.announcement-content {
+    width: 85%;
+}
+
+.ac_title {
+    font-family: Roboto;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.ac_text {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #636363;
+}
+
+.trending-bar-grid-container {
+    background-color: #ffffff;
+    padding: 15px;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);         
+    border-radius: 9px 9px 9px 9px;
+    -webkit-border-radius: 9px 9px 9px 9px;
+    -moz-border-radius: 9px 9px 9px 9px;
+    gap: 10px;
+}
+
+.trending_row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+                        "avatar tag"
+                        "avatar project";
+                        
+}
+.tb-avatar {
+    justify-self: end;
+    padding-right: 25px;
+    grid-area: avatar;
+}
+
+.tb-avatar > img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+
+.tb-tag {
+    align-self: self-end;
+}
+
+.tb-project {
+
+}
